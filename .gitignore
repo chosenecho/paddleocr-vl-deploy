@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+
+# Logs, caches, and runtime outputs
+*.log
+logs/
+cache/
+output/
+_chunks/
+progress.db
+progress.db-journal
+progress.db-wal
+progress.db-shm
+
+# Secrets and local env
+.env
+.env.*
+*.pem
+*.key
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

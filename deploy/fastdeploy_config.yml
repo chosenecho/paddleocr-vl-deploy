@@ -1,0 +1,10 @@
+# FastDeploy configuration tuned for RTX 4090 D 48GB (CC 8.9) + 20 vCPU - MAX THROUGHPUT & ZERO OOM/429
+# FastDeploy uses ~45% (~21.6 GB) VRAM (2GB weights + ~19.5GB KV Cache for 256 seqs),
+# leaving ~26.4 GB for 6 parallel PP-DocLayoutV3 GPU workers running batch_size=8 (~16GB peak) + ~10GB safety headroom.
+max-model-len: 16384
+max-num-batched-tokens: 16384
+gpu-memory-utilization: 0.45
+max-num-seqs: 256
+max-concurrency: 4096
+workers: 6
+graph-optimization-config: '{"graph_opt_level":0, "use_cudagraph":true}'
