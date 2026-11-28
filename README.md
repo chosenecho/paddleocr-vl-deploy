@@ -145,9 +145,9 @@ PY=/root/autodl-tmp/ocr_deploy/envs/ocr_client/bin/python
 - **接口与质量护栏说明**：[`docs/API.md`](docs/API.md) — 完整请求/响应字段、采样参数校验、重复幻觉重试策略、`LOW_TEXT_PAGE` 判定与 Python 客户端示例
 - **部署、显存调优与排错**：[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — 依赖锁定原因、48GB/24GB 显存配比、环境变量清单、多机部署与常见问题
 
-## 配套客户端与关联项目
+## 配套客户端
 
-- **[`chosenecho/paddleocr-vl-scan`](https://github.com/chosenecho/paddleocr-vl-scan)**：面向大规模 PDF 教材与专业书籍的完整客户端扫描流水线，与本服务网关无缝对接。如果你的任务仅在单台 GPU 机器上跑通，直接使用本仓库内置的 `deploy/batch_runner.py` 即可；如果需要**本地多节点统一调度**、**扫前逐页质量预检（`book-quality`）**、**`tar | ssh` 远端 NVMe 预暂存零 HTTP 上传**、**语义目录分块**、**本地原 PDF 高清彩色裁图**以及 **SQLite 四层质检与告警台账**，推荐使用 [`paddleocr-vl-scan`](https://github.com/chosenecho/paddleocr-vl-scan)。
+- **[`chosenecho/paddleocr-vl-scan`](https://github.com/chosenecho/paddleocr-vl-scan)**：本地多节点批量 PDF 扫描客户端。单台 GPU 本机跑文件直接用 `deploy/batch_runner.py` 即可；需要本地经 SSH 隧道调度多台节点、扫前逐页预检（`book-quality`）、`tar | ssh` 预暂存、本地原 PDF 彩色裁图或 SQLite 质量追踪时，用 `paddleocr-vl-scan`。
 
 ## License
 
