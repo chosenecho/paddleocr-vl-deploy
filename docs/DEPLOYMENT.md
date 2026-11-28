@@ -94,7 +94,7 @@ OCR_WORKERS=2 VL_REC_MAX_CONCURRENCY=32 bash /root/autodl-tmp/ocr_deploy/scripts
 
 每个 GPU 节点完全无状态，只需在新增节点上同步 `deploy/` 并执行安装与启动即可（如果在云平台上通过已有实例镜像/磁盘克隆新节点，可直接同步最新脚本并运行 `start_services.sh`，无需重装环境与重下权重）。
 
-本地通过 SSH 隧道映射多个节点端口后，可在业务客户端做轮询或挂一层 Nginx / HAProxy 负载均衡：
+本地通过 SSH 隧道映射多个节点端口后，可在业务客户端做轮询、挂一层 Nginx / HAProxy 负载均衡，或直接使用配套的多节点客户端流水线 **[`chosenecho/paddleocr-vl-scan`](https://github.com/chosenecho/paddleocr-vl-scan)**（原生支持逗号分隔多端点负载均衡、`tar | ssh` 预暂存零 HTTP 上传、节点亲和调度与本地原 PDF 彩色裁图）：
 
 ```bash
 # 映射两个远程节点到本地 8080 / 8081
